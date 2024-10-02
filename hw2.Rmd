@@ -334,7 +334,7 @@ write_csv(star_bakers, "star_bakers_seasons5_to_10.csv")
 
 ### Import, clean, tidy, and organize the viewership data in viewers.csv. Show the first 10 rows of this dataset. What was the average viewership in Season 1? In Season 5?
 
-*  The average in Season1 is 6.125, and the avrage of season 5 is 6.25
+*  The average in Season1 is 2.5, and the avrage of season 5 is 9.6
 ```{r}
 # View bakers dataset
 glimpse(viewers)
@@ -356,19 +356,19 @@ head(viewers_clean, n=10)
 ```
 
 ```{r}
-# Filter for Series 1 to 10 and Episode 1, then calculate the mean viewership
-episode_1_avg <- viewers_clean %>%
-  filter(series >= 1 & series <= 10 & Episode == 1) %>%
+# Filter for Series 1, then calculate the mean viewership
+series_1_avg <- viewers_clean %>%
+  filter(series_num == "Series 1") %>%
   summarise(avg_viewership = mean(series, na.rm = TRUE))
 
-episode_1_avg
+series_1_avg
 
-# Filter for Series 1 to 10 and Episode 5, then calculate the mean viewership
-episode_5_avg <- viewers_clean %>%
-  filter(series >= 1 & series <= 10 & Episode == 5) %>%
+# Filter for Series 5, then calculate the mean viewership
+series_5_avg <- viewers_clean %>%
+  filter(series_num == "Series 5") %>%
   summarise(avg_viewership = mean(series, na.rm = TRUE))
 
-episode_5_avg
+series_5_avg
 ```
 
 

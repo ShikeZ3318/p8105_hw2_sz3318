@@ -962,8 +962,8 @@ write_csv(star_bakers, &quot;star_bakers_seasons5_to_10.csv&quot;)</code></pre>
 viewers.csv. Show the first 10 rows of this dataset. What was the
 average viewership in Season 1? In Season 5?</h3>
 <ul>
-<li>The average in Season1 is 6.125, and the avrage of season 5 is
-6.25</li>
+<li>The average in Season1 is 2.5, and the avrage of season 5 is
+9.6</li>
 </ul>
 <pre class="r"><code># View bakers dataset
 glimpse(viewers)</code></pre>
@@ -1032,26 +1032,26 @@ colSums(is.na(viewers_clean))</code></pre>
 ##  8       1 Series 8        9
 ##  9       1 Series 9        9
 ## 10       1 Series 10       9</code></pre>
-<pre class="r"><code># Filter for Series 1 to 10 and Episode 1, then calculate the mean viewership
-episode_1_avg &lt;- viewers_clean %&gt;%
-  filter(series &gt;= 1 &amp; series &lt;= 10 &amp; Episode == 1) %&gt;%
+<pre class="r"><code># Filter for Series 1, then calculate the mean viewership
+series_1_avg &lt;- viewers_clean %&gt;%
+  filter(series_num == &quot;Series 1&quot;) %&gt;%
   summarise(avg_viewership = mean(series, na.rm = TRUE))
 
-episode_1_avg</code></pre>
+series_1_avg</code></pre>
 <pre><code>## # A tibble: 1 × 1
 ##   avg_viewership
 ##            &lt;dbl&gt;
-## 1           6.12</code></pre>
-<pre class="r"><code># Filter for Series 1 to 10 and Episode 5, then calculate the mean viewership
-episode_5_avg &lt;- viewers_clean %&gt;%
-  filter(series &gt;= 1 &amp; series &lt;= 10 &amp; Episode == 5) %&gt;%
+## 1            2.5</code></pre>
+<pre class="r"><code># Filter for Series 5, then calculate the mean viewership
+series_5_avg &lt;- viewers_clean %&gt;%
+  filter(series_num == &quot;Series 5&quot;) %&gt;%
   summarise(avg_viewership = mean(series, na.rm = TRUE))
 
-episode_5_avg</code></pre>
+series_5_avg</code></pre>
 <pre><code>## # A tibble: 1 × 1
 ##   avg_viewership
 ##            &lt;dbl&gt;
-## 1           6.25</code></pre>
+## 1            9.6</code></pre>
 </div>
 </div>
 </div>
